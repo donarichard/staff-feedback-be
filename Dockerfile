@@ -10,8 +10,6 @@ RUN npm install
 
 RUN npm install -g @babel/core @babel/cli
 
-sudo chown -R 992:991 "/root/.npm"
-
 COPY . .
 
 CMD [ "npm", "run", "start" ]
