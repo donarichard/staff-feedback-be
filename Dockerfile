@@ -4,11 +4,11 @@ ENV PORT=8080
 
 WORKDIR /home/node/app
 
+RUN npm install -g @babel/core @babel/cli
+
 COPY package*.json .
 
 RUN npm install
-
-RUN npm install -g @babel/core @babel/cli
 
 COPY . .
 
