@@ -6,6 +6,8 @@ WORKDIR /home/node/app
 
 COPY package*.json .
 
+RUN npm config set cache /tmp --global
+
 RUN npm install --quiet
 
 RUN npm install 
