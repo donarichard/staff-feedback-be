@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets=@babel/preset-env ./server --out-dir dist --copy-files",
-    "serve": "node dist/index.js",
-    "start": "npm run build && npm run serve",
-    "dev": "nodemon --exec babel-node --presets=@babel/preset-env server/index.js",
-    "swagger": "node server/docs/index.js"
+    "build": "babel --config-file ./.babelrc.js server --out-dir dist",
+    "serve": "node dist/docs/index.js && node dist/index.js",
+    "start": "npm run swagger && npm run build && npm run serve",
+    "dev": "nodemon --exec babel-node server/index.js --ignore jsconfig.json",
+    "swagger": "node server/docs/index.js",
+    "format": "prettier --write \"**/*.{js,mjs,cjs}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/node": "^7.22.19",
+    "@babel/plugin-syntax-throw-expressions": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "celebrate": "^15.0.3",
     "cluster": "^0.7.7",
     "cors": "^2.8.5",
@@ -27,13 +34,10 @@
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "os": "^0.1.2",
+    "prettier": "^3.0.3",
+    "swagger-autogen": "^2.23.7",
     "swagger-ui": "^5.9.1",
     "swagger-ui-express": "^5.0.0",
-    "winston": "^3.11.0",
-    "@babel/cli": "^7.23.0",
-    "@babel/core": "^7.23.2",
-    "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.23.2",
-    "swagger-autogen": "^2.23.7"
+    "winston": "^3.11.0"
   }
 }
