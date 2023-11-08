@@ -6,13 +6,13 @@ WORKDIR /home/node/app
 
 ENV PATH /home/node/app/node_modules/.bin:$PATH
 
-COPY package*.json .
+COPY package*.json /home/node/app
 
 RUN npm config set cache /tmp --global
 
 RUN npm install 
 
-COPY . .
+COPY . /home/node/app
 
 CMD [ "npm", "start"]
 
