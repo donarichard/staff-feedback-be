@@ -14,6 +14,6 @@ RUN npm install -g @babel/core @babel/cli @babel/preset-env
 
 COPY . .
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "dev" ]
 
 EXPOSE 8080
