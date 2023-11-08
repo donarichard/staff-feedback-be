@@ -4,6 +4,8 @@ ENV PORT=8081
 
 WORKDIR /home/node/app
 
+ENV PATH /home/node/app/node_modules/.bin:$PATH
+
 COPY package*.json .
 
 RUN npm config set cache /tmp --global
