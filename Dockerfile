@@ -4,16 +4,12 @@ ENV PORT=8081
 
 WORKDIR /home/node/app
 
-ENV PATH /home/node/app/node_modules/.bin:$PATH
+COPY package*.json .
 
-COPY package*.json /home/node/app
-
-RUN npm config set cache /tmp --global
+RUN npm install --quiet
 
 RUN npm install 
 
-COPY . /home/node/app
-
-CMD [ "npm", "start"]
+COPY . .
 
 EXPOSE 8081
