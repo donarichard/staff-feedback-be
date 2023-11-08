@@ -8,9 +8,9 @@ COPY package*.json .
 
 RUN npm config set cache /tmp --global
 
-RUN npm install  --also=dev
+RUN npm install --include=dev
 
-RUN npm install -g @babel/core @babel/cli
+RUN npm install -g @babel/core @babel/cli @babel/preset-env
 
 COPY . .
 
